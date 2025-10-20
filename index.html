@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>untitled - Paint</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="desktop">
+    <div class="window">
+      <div class="titlebar">
+        <span class="winicon">🖼️</span>
+        <span class="title">untitled - Paint</span>
+        <div class="winbtns">
+          <button class="wbtn" aria-label="Minimize">−</button>
+          <button class="wbtn" aria-label="Maximize">□</button>
+          <button class="wbtn" aria-label="Close">×</button>
+        </div>
+      </div>
+
+      <nav class="menubar" aria-label="Menu">
+        <button class="menuitem">File</button>
+        <button class="menuitem">Edit</button>
+        <button class="menuitem">View</button>
+        <button class="menuitem">Image</button>
+        <button class="menuitem">Options</button>
+        <button class="menuitem">Help</button>
+      </nav>
+
+      <div class="content">
+        <aside class="toolbox" aria-label="Outils">
+          <button class="tool active" data-tool="select" title="Select">▭</button>
+          <button class="tool" data-tool="eraser" title="Eraser">⌫</button>
+          <button class="tool" data-tool="fill" title="Fill">🪣</button>
+          <button class="tool" data-tool="eyedrop" title="Eyedropper">🧪</button>
+          <button class="tool" data-tool="zoom" title="Zoom">🔍</button>
+          <button class="tool" data-tool="pencil" title="Pencil">✏️</button>
+          <button class="tool" data-tool="brush" title="Brush">🖌️</button>
+          <button class="tool" data-tool="spray" title="Airbrush">🫧</button>
+          <button class="tool" data-tool="text" title="Text">A</button>
+          <button class="tool" data-tool="line" title="Line">／</button>
+          <button class="tool" data-tool="rect" title="Rectangle">▭</button>
+          <button class="tool" data-tool="ellipse" title="Ellipse">◯</button>
+        </aside>
+
+        <div class="canvas-wrap">
+          <!-- Scroll area with real scrollbars -->
+          <div class="scrollbox">
+            <div class="paper">
+              <canvas id="paint" width="1600" height="1200"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <aside class="colors">
+          <div class="primary-secondary">
+            <div class="colorbox primary" id="primaryBox" title="Primary (Left)"></div>
+            <div class="colorbox secondary" id="secondaryBox" title="Secondary (Right)"></div>
+          </div>
+          <div class="palette" id="palette">
+            <!-- 28 Win98-like colors -->
+            <button data-color="#000000" style="background:#000000"></button>
+            <button data-color="#808080" style="background:#808080"></button>
+            <button data-color="#C0C0C0" style="background:#C0C0C0"></button>
+            <button data-color="#FFFFFF" style="background:#FFFFFF;border:1px solid #999"></button>
+
+            <button data-color="#800000" style="background:#800000"></button>
+            <button data-color="#FF0000" style="background:#FF0000"></button>
+            <button data-color="#FF8000" style="background:#FF8000"></button>
+            <button data-color="#FFFF00" style="background:#FFFF00"></button>
+
+            <button data-color="#808000" style="background:#808000"></button>
+            <button data-color="#00FF00" style="background:#00FF00"></button>
+            <button data-color="#008000" style="background:#008000"></button>
+            <button data-color="#00FFFF" style="background:#00FFFF"></button>
+
+            <button data-color="#008080" style="background:#008080"></button>
+            <button data-color="#0000FF" style="background:#0000FF"></button>
+            <button data-color="#000080" style="background:#000080"></button>
+            <button data-color="#800080" style="background:#800080"></button>
+
+            <button data-color="#FF00FF" style="background:#FF00FF"></button>
+            <button data-color="#804000" style="background:#804000"></button>
+            <button data-color="#FFAFAF" style="background:#FFAFAF"></button>
+            <button data-color="#FFD27F" style="background:#FFD27F"></button>
+
+            <button data-color="#FFFFAF" style="background:#FFFFAF"></button>
+            <button data-color="#AFFFAD" style="background:#AFFFAD"></button>
+            <button data-color="#7FFFD4" style="background:#7FFFD4"></button>
+            <button data-color="#AFD7FF" style="background:#AFD7FF"></button>
+
+            <button data-color="#AFAFFF" style="background:#AFAFFF"></button>
+            <button data-color="#D7AFF7" style="background:#D7AFF7"></button>
+            <button data-color="#FFC0CB" style="background:#FFC0CB"></button>
+            <button data-color="#B5651D" style="background:#B5651D"></button>
+          </div>
+          <div class="sizes" aria-label="Taille">
+            <label>Taille</label>
+            <input id="sizeRange" type="range" min="1" max="40" value="2">
+          </div>
+        </aside>
+      </div>
+
+      <div class="statusbar">
+        <span id="statusHelp">For Help, click Help Topics on the Help Menu.</span>
+        <span id="statusInfo">x:- y:-  |  Zoom: 100%</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text editor overlay -->
+  <input id="textOverlay" class="text-overlay" type="text" placeholder="" />
+  <script src="script.js"></script>
+</body>
+</html>

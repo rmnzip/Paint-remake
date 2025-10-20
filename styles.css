@@ -1,0 +1,179 @@
+/* Fond bureau Win98 */
+body {
+  margin: 0;
+  font-family: "MS Sans Serif", Arial, sans-serif;
+  background: #008080;
+  color: #000;
+}
+
+.desktop { padding: 20px; }
+
+/* Fenêtre */
+.window {
+  width: 980px;
+  margin: 0 auto;
+  background: #c0c0c0;
+  border: 2px solid #000;
+  box-shadow: 2px 2px #404040;
+}
+
+/* Barre de titre */
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #000080;
+  color: #fff;
+  padding: 2px 4px;
+  height: 24px;
+  font-weight: bold;
+  font-size: 13px;
+}
+.titlebar .title { margin-left: 6px; }
+.winbtns { display: flex; gap: 2px; }
+.wbtn {
+  width: 22px; height: 18px;
+  border: none;
+  background: #c0c0c0;
+  color: #000;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* Menubar */
+.menubar {
+  background: #c0c0c0;
+  border-bottom: 2px solid #808080;
+  padding: 2px 4px;
+}
+.menuitem {
+  background: transparent;
+  border: none;
+  padding: 2px 6px;
+  font-size: 13px;
+  cursor: default;
+}
+.menuitem:hover { background: #000080; color: #fff; }
+
+/* Layout principal */
+.content {
+  display: grid;
+  grid-template-columns: 60px 1fr 220px;
+  gap: 6px;
+  padding: 6px;
+}
+
+/* Toolbox verticale */
+.toolbox {
+  background: #c0c0c0;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  padding: 4px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+.tool {
+  height: 34px;
+  background: #c0c0c0;
+  border: 2px outset #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
+.tool.active { border: 2px inset #808080; background: #a0a0a0; }
+
+/* Zone canvas avec barres de scroll visibles */
+.canvas-wrap {
+  background: #c0c0c0;
+  padding: 2px;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+}
+.scrollbox {
+  width: 100%;
+  height: 520px;
+  overflow: auto;
+  background: #bfbfbf;
+  border: 2px inset #808080;
+}
+.paper {
+  width: 1700px;
+  height: 1300px;
+  padding: 12px;
+  background: repeating-conic-gradient(#eee 0% 25%, #ccc 0% 50%) 0 0 / 16px 16px;
+}
+#paint {
+  background: transparent;
+  image-rendering: pixelated;
+  display: block;
+  border: 1px solid #999;
+}
+
+/* Zone couleurs à droite */
+.colors {
+  background: #c0c0c0;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  padding: 6px;
+}
+.primary-secondary {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+  align-items: center;
+}
+.colorbox {
+  width: 32px; height: 32px;
+  border: 2px inset #808080;
+  background: #000;
+}
+.colorbox.secondary { background: #fff; }
+
+.palette {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.palette button {
+  width: 40px; height: 22px;
+  border: 1px solid #808080;
+  cursor: pointer;
+}
+
+.sizes { font-size: 12px; }
+#sizeRange { width: 100%; }
+
+/* Barre d'état */
+.statusbar {
+  display: flex;
+  justify-content: space-between;
+  background: #c0c0c0;
+  border-top: 2px solid #fff;
+  border-left: 2px solid #fff;
+  border-right: 2px solid #808080;
+  border-bottom: 2px solid #808080;
+  padding: 2px 6px;
+  font-size: 12px;
+}
+
+/* Overlay pour l'outil Texte */
+.text-overlay {
+  position: absolute;
+  top: -1000px;
+  left: -1000px;
+  width: 200px;
+  height: 20px;
+  border: 1px dashed #000;
+  font: 14px "MS Sans Serif", Arial, sans-serif;
+  color: #000;
+  background: rgba(255,255,255,0.95);
+  padding: 2px 4px;
+  outline: none;
+}
