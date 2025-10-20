@@ -1,179 +1,155 @@
-/* Fond bureau Win98 */
+/* ===============================
+   Windows 98 - Style simple
+   =============================== */
+
 body {
-  margin: 0;
-  font-family: "MS Sans Serif", Arial, sans-serif;
+  margin: 10px;
   background: #008080;
-  color: #000;
+  font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+  color: #000000;
 }
 
-.desktop { padding: 20px; }
-
-/* Fenêtre */
-.window {
-  width: 980px;
-  margin: 0 auto;
-  background: #c0c0c0;
-  border: 2px solid #000;
-  box-shadow: 2px 2px #404040;
+.win98-window {
+  background: #C0C0C0;
+  border: 2px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
 }
 
 /* Barre de titre */
 .titlebar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   background: #000080;
-  color: #fff;
+  color: #FFFFFF;
   padding: 2px 4px;
-  height: 24px;
-  font-weight: bold;
-  font-size: 13px;
 }
-.titlebar .title { margin-left: 6px; }
-.winbtns { display: flex; gap: 2px; }
-.wbtn {
-  width: 22px; height: 18px;
-  border: none;
-  background: #c0c0c0;
-  color: #000;
-  cursor: pointer;
-  padding: 0;
+.titlebar .title { font-weight: bold; font-size: 14px; }
+.window-controls { display: flex; gap: 2px; }
+.wc-btn {
+  width: 18px; height: 18px; padding: 0;
+  border: 1px solid #000000; background: #C0C0C0;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+  cursor: default; font-size: 12px; line-height: 14px;
 }
+.wc-btn.close { color: #800000; font-weight: bold; }
 
-/* Menubar */
+/* Menus */
 .menubar {
-  background: #c0c0c0;
-  border-bottom: 2px solid #808080;
-  padding: 2px 4px;
+  display: flex; gap: 6px; padding: 4px;
+  background: #C0C0C0; border-bottom: 1px solid #FFFFFF;
+  box-shadow: inset 0 -1px 0 #808080;
 }
 .menuitem {
-  background: transparent;
-  border: none;
-  padding: 2px 6px;
-  font-size: 13px;
-  cursor: default;
+  border: none; background: transparent; font-size: 13px;
+  padding: 2px 6px; cursor: default;
 }
-.menuitem:hover { background: #000080; color: #fff; }
-
-/* Layout principal */
-.content {
-  display: grid;
-  grid-template-columns: 60px 1fr 220px;
-  gap: 6px;
-  padding: 6px;
+.menuitem:active, .menuitem:focus {
+  outline: 1px dotted #000000; background: #000080; color: #FFFFFF;
 }
 
-/* Toolbox verticale */
+/* Layout */
+.app-body {
+  display: grid; grid-template-columns: 80px 1fr; gap: 6px; padding: 6px;
+}
+
+/* Toolbox */
 .toolbox {
-  background: #c0c0c0;
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-  padding: 4px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4px;
+  width: 80px; background: #C0C0C0;
+  border: 1px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+  padding: 6px; display: flex; flex-direction: column; align-items: center; gap: 6px;
 }
 .tool {
-  height: 34px;
-  background: #c0c0c0;
-  border: 2px outset #fff;
-  font-size: 16px;
-  cursor: pointer;
+  width: 28px; height: 28px; padding: 0; display: grid; place-items: center;
+  background: #C0C0C0; border: 1px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+  cursor: default;
 }
-.tool.active { border: 2px inset #808080; background: #a0a0a0; }
+.tool.selected { outline: 2px solid #000080; }
+.tool.wide { width: 100%; height: auto; padding: 4px 6px; }
+.tool-sep { width: 100%; height: 2px; background: #808080; box-shadow: 0 1px 0 #FFFFFF; }
 
-/* Zone canvas avec barres de scroll visibles */
-.canvas-wrap {
-  background: #c0c0c0;
-  padding: 2px;
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-}
-.scrollbox {
-  width: 100%;
-  height: 520px;
-  overflow: auto;
-  background: #bfbfbf;
-  border: 2px inset #808080;
-}
-.paper {
-  width: 1700px;
-  height: 1300px;
-  padding: 12px;
-  background: repeating-conic-gradient(#eee 0% 25%, #ccc 0% 50%) 0 0 / 16px 16px;
-}
-#paint {
-  background: transparent;
-  image-rendering: pixelated;
-  display: block;
-  border: 1px solid #999;
-}
+/* Tailles */
+.sizes { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; width: 100%; justify-items: center; }
+.size-dot { width: 26px; height: 20px; border: 1px solid #000000; background: #FFFFFF; position: relative; }
+.size-dot::after { content: ""; position: absolute; left: 50%; top: 50%; width: 1px; height: 1px; background: #000000; transform: translate(-50%, -50%); }
+.size-dot[data-size="3"]::after { width: 3px; height: 3px; }
+.size-dot[data-size="5"]::after { width: 5px; height: 5px; }
+.size-dot[data-size="8"]::after { width: 8px; height: 8px; }
+.size-dot.selected { outline: 2px solid #000080; }
 
-/* Zone couleurs à droite */
-.colors {
-  background: #c0c0c0;
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-  padding: 6px;
+/* Workarea */
+.workarea {
+  background: #C0C0C0; border: 1px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+  padding: 6px; display: flex; flex-direction: column; gap: 6px;
 }
-.primary-secondary {
-  display: flex;
-  gap: 8px;
-  margin-bottom: 8px;
-  align-items: center;
-}
-.colorbox {
-  width: 32px; height: 32px;
-  border: 2px inset #808080;
-  background: #000;
-}
-.colorbox.secondary { background: #fff; }
+.color-indicators { display: flex; gap: 8px; align-items: center; }
+.swatch { width: 30px; height: 24px; border: 1px solid #000000; box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080; }
+.swatch.secondary { margin-left: -12px; }
 
+/* Canvas wrapper (fenêtre) */
+.canvas-wrapper {
+  position: relative; background: #C0C0C0;
+  border: 1px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+  width: 100%; height: 520px; overflow: hidden;
+}
+#viewCanvas { position: absolute; left: 0; top: 0; background: #FFFFFF; cursor: crosshair; }
+
+/* Scrollbars (fonctionnelles) */
+.scrollbar {
+  position: absolute; background: #C0C0C0;
+  border: 1px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+  font-size: 0; /* éviter les espaces inline */
+}
+.scrollbar.vertical { right: 2px; top: 2px; width: 16px; height: calc(100% - 20px); }
+.scrollbar.horizontal { left: 2px; bottom: 2px; height: 16px; width: calc(100% - 20px); }
+
+.scrollbar .arrow {
+  width: 14px; height: 14px; margin: 1px; padding: 0;
+  border: 1px solid #000000; background: #C0C0C0;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+}
+.scrollbar.vertical .arrow.up { position: absolute; top: 1px; left: 1px; }
+.scrollbar.vertical .arrow.down { position: absolute; bottom: 1px; left: 1px; }
+.scrollbar.horizontal .arrow.left { position: absolute; left: 1px; top: 1px; }
+.scrollbar.horizontal .arrow.right { position: absolute; right: 1px; top: 1px; }
+
+.scrollbar .track {
+  position: absolute; background: #B0B0B0;
+  box-shadow: inset 1px 1px 0 #FFFFFF, inset -1px -1px 0 #808080;
+}
+.scrollbar.vertical .track { top: 18px; bottom: 18px; left: 1px; right: 1px; }
+.scrollbar.horizontal .track { left: 18px; right: 18px; top: 1px; bottom: 1px; }
+
+.scrollbar .thumb {
+  position: absolute; background: #C0C0C0; border: 1px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+}
+.scrollbar.vertical .thumb { width: 12px; left: 1px; top: 40px; height: 60px; }
+.scrollbar.horizontal .thumb { height: 12px; top: 1px; left: 60px; width: 90px; }
+
+/* Palette : carrés parfaits */
 .palette {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 6px;
-  margin-bottom: 8px;
+  display: grid; grid-template-columns: repeat(16, 20px);
+  gap: 4px; background: #C0C0C0; padding: 6px;
+  border: 1px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080;
+  align-self: start;
 }
-.palette button {
-  width: 40px; height: 22px;
-  border: 1px solid #808080;
-  cursor: pointer;
-}
+.color { width: 20px; height: 20px; border: 1px solid #000000;
+  box-shadow: inset -1px -1px 0 #FFFFFF, inset 1px 1px 0 #808080; background: #000000; padding: 0; }
 
-.sizes { font-size: 12px; }
-#sizeRange { width: 100%; }
-
-/* Barre d'état */
+/* Status bar */
 .statusbar {
-  display: flex;
-  justify-content: space-between;
-  background: #c0c0c0;
-  border-top: 2px solid #fff;
-  border-left: 2px solid #fff;
-  border-right: 2px solid #808080;
-  border-bottom: 2px solid #808080;
-  padding: 2px 6px;
-  font-size: 12px;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 4px 6px; font-size: 12px; background: #C0C0C0;
+  border-top: 1px solid #FFFFFF; box-shadow: inset 0 1px 0 #808080;
 }
+.coords { min-width: 120px; text-align: right; }
 
-/* Overlay pour l'outil Texte */
-.text-overlay {
-  position: absolute;
-  top: -1000px;
-  left: -1000px;
-  width: 200px;
-  height: 20px;
-  border: 1px dashed #000;
-  font: 14px "MS Sans Serif", Arial, sans-serif;
-  color: #000;
-  background: rgba(255,255,255,0.95);
-  padding: 2px 4px;
-  outline: none;
-}
+/* Focus */
+button:focus { outline: 1px dotted #000000; }
